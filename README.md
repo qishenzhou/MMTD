@@ -12,7 +12,7 @@ The **processed fixed-sensor data** (excluding floating car data) is publicly av
 - **Version:** v1.0
 - **Contents:** Processed fixed-sensor data, graph topology, and static road attributes
 
-> **Note on Floating Car Data:** TomTom floating car data is **not included** in the Zenodo release, as TomTom is a commercial data provider. Users can obtain TomTom Traffic Stats data directly from [TomTom Developer Portal](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) under their terms. We provide binding scripts/notebooks to align your own TomTom data with our processed fixed-sensor data to construct the complete MMTD.
+> **Note on Floating Car Data:** TomTom floating car data is **not included** in the Zenodo release, as TomTom is a commercial data provider. Users can obtain TomTom Traffic Stats data directly from [TomTom Developer Portal](https://move.tomtom.com/) under their terms. We provide binding scripts/notebooks to align your own TomTom data with our processed fixed-sensor data to construct the complete MMTD.
 
 ## Overview
 
@@ -24,14 +24,18 @@ The **processed fixed-sensor data** (excluding floating car data) is publicly av
 
 MMTD includes **traffic state variables** (flow, speed, travel time, occupancy, congestion index where available), **road static attributes** (length, lanes, speed limit), and **graph topology** (adjacency, betweenness/closeness centrality).
 
-## Data Sources
+## Data Source Attribution
 
-| Source | Description | Access |
-|--------|-------------|--------|
-| **Fixed sensors** | Madrid traffic authority; ~4,678 loop detectors; 15-min historical data; flow, occupancy, speed (highway), congestion index (urban). [Ref](https://datos.madrid.es/) | ✅ [Zenodo](https://doi.org/10.5281/zenodo.18781181) |
-| **Floating car** | TomTom Traffic Stats; 15-min aggregates (flow, speed, travel time) on TomTom's own segment geometry. [Ref](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) | ⚠️ Not redistributed (commercial). Obtain from [TomTom](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) |
-| **Road network** | OpenStreetMap (OSM) as the reference network and for topology. | ✅ OpenStreetMap |
-| **Lane counts** | Madrid planning authority; used for lane-level flow normalization. | ✅ [Zenodo](https://doi.org/10.5281/zenodo.18781181) |
+This dataset is derived from the following original data sources:
+
+| Source | Description | Original Provider | Redistribution |
+|--------|-------------|-------------------|----------------|
+| **Fixed sensors** | ~4,678 loop detectors; 15-min historical data; flow, occupancy, speed (highway), congestion index (urban). | [Ayuntamiento de Madrid](https://datos.madrid.es/dataset/208627-0-transporte-ptomedida-historico) | ✅ Available on [Zenodo](https://doi.org/10.5281/zenodo.18781181) |
+| **Lane counts** | Lane-level data for flow normalization. | [Ayuntamiento de Madrid](https://datos.madrid.es/) | ✅ Available on [Zenodo](https://doi.org/10.5281/zenodo.18781181) |
+| **Road network** | Road topology and geometry. | [OpenStreetMap](https://www.openstreetmap.org/) | ✅ OpenStreetMap |
+| **Floating car** | 15-min aggregates (flow, speed, travel time) on TomTom's segment geometry. | [TomTom](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) | ⚠️ Not redistributed (commercial data). Users obtain directly from TomTom |
+
+*Madrid fixed-sensor and lane-count data are reusable under the Madrid Open Data terms (Real Decreto Legislativo 1/1996), which requires attribution to the source and author.*
 
 *Analysis period: August 2024.*
 
