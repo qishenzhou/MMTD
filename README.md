@@ -2,6 +2,17 @@
 
 A **large-scale, spatio-temporally aligned multi-source traffic dataset** at metropolitan scale, built for deep learning and traffic state inference. MMTD standardizes heterogeneous fixed sensors and floating car data onto a unified road network, providing a reproducible benchmark for data-driven traffic dynamics modeling.
 
+## Data Access
+
+The **processed fixed-sensor data** (excluding floating car data) is publicly available on Zenodo:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18781181.svg)](https://doi.org/10.5281/zenodo.18781181)
+
+- **Zenodo Record:** [https://doi.org/10.5281/zenodo.18781181](https://doi.org/10.5281/zenodo.18781181)
+- **Version:** v1.0
+- **Contents:** Processed fixed-sensor data, graph topology, and static road attributes
+
+> **Note on Floating Car Data:** TomTom floating car data is **not included** in the Zenodo release, as TomTom is a commercial data provider. Users can obtain TomTom Traffic Stats data directly from [TomTom Developer Portal](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) under their terms. We provide binding scripts/notebooks to align your own TomTom data with our processed fixed-sensor data to construct the complete MMTD.
 
 ## Overview
 
@@ -15,12 +26,12 @@ MMTD includes **traffic state variables** (flow, speed, travel time, occupancy, 
 
 ## Data Sources
 
-| Source | Description |
-|--------|-------------|
-| **Fixed sensors** | Madrid traffic authority; ~4,678 loop detectors; 15-min historical data; flow, occupancy, speed (highway), congestion index (urban). [Ref](https://datos.madrid.es/) |
-| **Floating car** | TomTom Traffic Stats; 15-min aggregates (flow, speed, travel time) on TomTom’s own segment geometry. [Ref](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) |
-| **Road network** | OpenStreetMap (OSM) as the reference network and for topology. |
-| **Lane counts** | Madrid planning authority; used for lane-level flow normalization. |
+| Source | Description | Access |
+|--------|-------------|--------|
+| **Fixed sensors** | Madrid traffic authority; ~4,678 loop detectors; 15-min historical data; flow, occupancy, speed (highway), congestion index (urban). [Ref](https://datos.madrid.es/) | ✅ [Zenodo](https://doi.org/10.5281/zenodo.18781181) |
+| **Floating car** | TomTom Traffic Stats; 15-min aggregates (flow, speed, travel time) on TomTom's own segment geometry. [Ref](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) | ⚠️ Not redistributed (commercial). Obtain from [TomTom](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) |
+| **Road network** | OpenStreetMap (OSM) as the reference network and for topology. | ✅ OpenStreetMap |
+| **Lane counts** | Madrid planning authority; used for lane-level flow normalization. | ✅ [Zenodo](https://doi.org/10.5281/zenodo.18781181) |
 
 *Analysis period: August 2024.*
 
@@ -64,7 +75,7 @@ MMTD is built through a standardized pipeline:
 ## Repository Contents
 
 - **Processing code:** pipeline for layer matching, spatial normalization, cleaning, and graph/dataset construction.
-- **Processed fixed-sensor data:** publicly shared within license terms.
+- **Processed fixed-sensor data:** publicly available on [Zenodo](https://doi.org/10.5281/zenodo.18781181) (CC BY 4.0 license).
 - **TomTom binding:** scripts/notebooks to align fixed-sensor data with TomTom (users supply their own TomTom data under [TomTom’s terms](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction)).
 - **Data loaders:** PyG-compatible dataset interface with graph sampling and configurable observation masks.
 
@@ -83,11 +94,31 @@ MMTD is built through a standardized pipeline:
 
 If you use MMTD in your work, please cite:
 
+### Dataset (Zenodo)
+
+When using the **processed data**, please cite the Zenodo record:
+
+```bibtex
+@dataset{zhou2026mmtd,
+  author       = {Zhou, Qishen},
+  title        = {MMTD: Madrid Fixed-Sensor Traffic Data (Processed
+                   Sample for Reproducible Research)},
+  month        = feb,
+  year         = {2026},
+  publisher    = {Zenodo},
+  version      = {v1.0},
+  doi          = {10.5281/zenodo.18781181},
+  url          = {https://doi.org/10.5281/zenodo.18781181}
+}
+```
+
+### Thesis Reference
+
 ```bibtex
 @phdthesis{zhou2025mmtd,
   author = {Qishen Zhou},
   title  = {[Thesis title; to be updated]},
-  school = {[University]},
+  school = {Zhejiang University},
   year   = {2025},
   note   = {MMTD dataset: Metropolitan Multi-source Traffic Data}
 }
