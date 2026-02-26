@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite both the software (GitHub) and the dataset (Zenodo)."
+message: "If you use this software, please cite it as below."
 type: software
 title: "MMTD: Metropolitan Multi-source Traffic Data"
 authors:
@@ -10,24 +10,23 @@ license: MIT
 year: 2026
 
 preferred-citation:
-  type: dataset
-  title: "MMTD: Madrid Fixed-Sensor Traffic Data (Processed Sample for Reproducible Research)"
+  type: software
+  title: "MMTD: Metropolitan Multi-source Traffic Data"
   authors:
     - family-names: Zhou
       given-names: Qishen
   year: 2026
-  month: 2
-  publisher:
-    name: Zenodo
-  doi: 10.5281/zenodo.18781181
-  url: "https://doi.org/10.5281/zenodo.18781181"
+  url: "https://github.com/qishenzhou/MMTD"
 
 references:
-  - type: thesis
-    title: "Resilient Inference and Uncertainty Quantification for Global Traffic State Using Sparse Data"
+  - type: dataset
+    title: "MMTD: Madrid Fixed-Sensor Traffic Data (Processed Sample for Reproducible Research)"
     authors:
       - family-names: Zhou
         given-names: Qishen
     year: 2026
-    institution:
-      name: Zhejiang University
+    month: 2
+    publisher:
+      name: Zenodo
+    doi: 10.5281/zenodo.18781181
+    url: "https://doi.org/10.5281/zenodo.18781181"
