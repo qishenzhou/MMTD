@@ -31,7 +31,7 @@ This dataset is derived from the following original data sources:
 | Source | Description | Original Provider |
 |--------|-------------|-------------------|
 | **Fixed sensors** | ~4,678 loop detectors; 15-min historical data; flow, occupancy, speed (highway), congestion index (urban). | [Ayuntamiento de Madrid](https://datos.madrid.es/dataset/208627-0-transporte-ptomedida-historico) |
-| **Lane counts** | Lane-level data for flow normalization. | [Ayuntamiento de Madrid](https://datos.madrid.es/) |
+| **Lane counts** | Lane-level data for flow normalization. | [Ayuntamiento de Madrid](https://datos.madrid.es/dataset/300723-0-carriles-mapas) |
 | **Road network** | Road topology and geometry. | [OpenStreetMap](https://www.openstreetmap.org/) |
 | **Floating car** | 15-min aggregates (flow, speed, travel time) on TomTom's segment geometry. | [TomTom](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction) |
 
@@ -119,26 +119,16 @@ When using the **processed data**, please cite the Zenodo record:
 ### Thesis Reference
 
 ```bibtex
-@phdthesis{zhou2025mmtd,
+@phdthesis{zhouphd,
   author = {Qishen Zhou},
-  title  = {[Thesis title; to be updated]},
+  title  = {Resilient Inference and Uncertainty Quantification for Global Traffic State Using Sparse Data},
   school = {Zhejiang University},
-  year   = {2025},
-  note   = {MMTD dataset: Metropolitan Multi-source Traffic Data}
+  year   = {2026}
 }
 ```
-
-*Replace with the final thesis citation once published.*
-
-## References
-
-- Madrid open data: [datos.madrid.es](https://datos.madrid.es/)
-- TomTom Traffic Stats: [developer.tomtom.com](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction)
-- OSM/OSMnx: [osmnx](https://github.com/gboeing/osmnx)
-- HMM map matching: Newson & Krumm (2009); [leuvenmapmatching](https://github.com/wannesm/LeuvenMapMatching)
 
 ## License
 
 - **Code and processing scripts:** [MIT License](LICENSE) — use, modify, and distribute freely; keep the copyright notice.
 - **Processed data** we distribute in this repository: **CC BY 4.0** — attribution appreciated; otherwise use freely. ([Summary](https://creativecommons.org/licenses/by/4.0/))
-- **Underlying data sources** (Madrid, TomTom, OSM) are subject to their own terms; see the references above. We do not grant rights beyond what those sources allow.
+- **Underlying data sources** (Madrid, TomTom, OSM) are subject to their own terms. We do not grant rights beyond what those sources allow.
