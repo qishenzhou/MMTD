@@ -12,7 +12,7 @@ The **processed fixed-sensor data** (excluding floating car data) is publicly av
 - **Version:** v1.0
 - **Contents:** Processed fixed-sensor data, graph topology, and static road attributes
 
-> **Note on Floating Car Data:** The floating car data used in this project is **TomTom Traffic Stats**, which is a **commercial data product**. Therefore, TomTom data is **not included** in the Zenodo release. Users can obtain TomTom Traffic Stats data directly from [TomTom Developer Portal](https://move.tomtom.com/) under their terms. We provide binding scripts/notebooks to align your own TomTom data with our processed fixed-sensor data to construct the complete MMTD.
+> **Note on Floating Car Data:** The floating car data used in this project is **TomTom Traffic Stats**, which is a **commercial data product**. Therefore, TomTom data is **not included** in the Zenodo release. Users can obtain TomTom Traffic Stats data directly from [TomTom Developer Portal](https://move.tomtom.com/) under their terms. The TomTom binding code is not included in the public release; please see [TomTom Binding Code](#tomtom-binding-code) below.
 
 ## Overview
 
@@ -80,16 +80,22 @@ MMTD is built through a standardized pipeline:
 
 - **Processing code:** pipeline for layer matching, spatial normalization, cleaning, and graph/dataset construction.
 - **Processed fixed-sensor data:** publicly available on [Zenodo](https://doi.org/10.5281/zenodo.18781181) (CC BY 4.0 license).
-- **TomTom binding:** scripts/notebooks to align fixed-sensor data with TomTom (users supply their own TomTom data under [TomTom’s terms](https://developer.tomtom.com/move-portal/guides/traffic-stats/introduction)).
+- **TomTom binding:** methodology described above; the binding code is not planned for public release (see [TomTom Binding Code](#tomtom-binding-code)).
 - **Data loaders:** PyG-compatible dataset interface with graph sampling and configurable observation masks.
 
 *Raw TomTom data is not redistributable; only processing methodology and processed fixed-sensor outputs are shared.*
+
+## TomTom Binding Code
+
+The TomTom binding workflow was developed in research notebooks containing exploratory analyses, intermediate drafts, and experiment-specific steps. Given the time elapsed since the original development, reconstructing the complete workflow and its execution details would require further review and organization. We therefore do not plan to publicly release these notebooks as a standalone implementation.
+
+If you are interested in aligning TomTom data with MMTD or learning more about the binding workflow, please contact the authors directly through [Qishen Zhou's GitHub profile](https://github.com/qishenzhou).
 
 ## Getting Started
 
 1. Clone the repo and install dependencies (see `requirements.txt` or environment files in the repo).
 2. Use the provided scripts/notebooks to reproduce the pipeline or load preprocessed fixed-sensor data.
-3. To obtain full MMTD (fixed + TomTom), acquire TomTom data for the same period/area and run the binding notebooks.
+3. If you are interested in constructing the full MMTD (fixed + TomTom), you will need to acquire TomTom data for the same period/area under TomTom's terms. Please [contact the authors](#tomtom-binding-code) to discuss the alignment workflow.
 4. Load the PyG dataset via the custom loader for training/evaluation (e.g. state estimation, imputation, forecasting).
 
 *Specific commands and example snippets will be added as the repository is populated.*
