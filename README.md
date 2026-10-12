@@ -87,9 +87,9 @@ MMTD was built through the pipeline summarized below. This section documents the
 
 ## TomTom Binding Code
 
-The TomTom binding workflow was developed in research notebooks containing exploratory analyses, intermediate drafts, and experiment-specific steps. Given the time elapsed since the original development, reconstructing the complete workflow and its execution details would require further review and organization. We therefore do not plan to publicly release these notebooks as a standalone implementation.
+The TomTom binding code was developed in research notebooks with many exploratory drafts. Over time, some workflow details have become difficult to reconstruct and verify, so we do not plan to publish these notebooks as a standalone implementation.
 
-If you are interested in aligning TomTom data with MMTD or learning more about the binding workflow, please contact [Qishen Zhou](mailto:qishenzhou@jlu.edu.cn) directly.
+If you are interested in aligning TomTom data with MMTD, please contact [Qishen Zhou](mailto:qishenzhou@jlu.edu.cn). We will respond promptly and do our best to help with questions about the workflow.
 
 ## Getting Started
 
