@@ -49,7 +49,7 @@ This dataset is derived from the following original data sources:
 
 ## Pipeline Summary
 
-MMTD is built through a standardized pipeline:
+MMTD was built through the pipeline summarized below. This section documents the methodology; a public release of the complete preprocessing implementation is not planned.
 
 1. **Layer matching**
    - **Point–line:** Match fixed sensors to lane-count layer, then to OSM segments (distance + heading + road-type constraints; search radius 15 m urban / 20 m highway).
@@ -78,27 +78,27 @@ MMTD is built through a standardized pipeline:
 
 ## Repository Contents
 
-- **Processing code:** pipeline for layer matching, spatial normalization, cleaning, and graph/dataset construction.
+- **Processing methodology:** an overview of layer matching, spatial normalization, cleaning, and graph/dataset construction. The complete preprocessing code is not planned for public release; interested readers are welcome to contact the authors.
 - **Processed fixed-sensor data:** publicly available on [Zenodo](https://doi.org/10.5281/zenodo.18781181) (CC BY 4.0 license).
 - **TomTom binding:** methodology described above; the binding code is not planned for public release (see [TomTom Binding Code](#tomtom-binding-code)).
-- **Data loaders:** PyG-compatible dataset interface with graph sampling and configurable observation masks.
+- **Data loaders:** a [standalone adaptation of the TA-ANP loader](data_provider/README.md), with PyG datasets, spatio-temporal sampling, and observation masks. Supports fixed-sensor data without TomTom, with a [runnable example](examples/load_fixed_sensor.py).
 
-*Raw TomTom data is not redistributable; only processing methodology and processed fixed-sensor outputs are shared.*
+*The public release includes loader code, processing methodology, and processed fixed-sensor outputs. TomTom data and binding notebooks are not included.*
 
 ## TomTom Binding Code
 
 The TomTom binding workflow was developed in research notebooks containing exploratory analyses, intermediate drafts, and experiment-specific steps. Given the time elapsed since the original development, reconstructing the complete workflow and its execution details would require further review and organization. We therefore do not plan to publicly release these notebooks as a standalone implementation.
 
-If you are interested in aligning TomTom data with MMTD or learning more about the binding workflow, please contact the authors directly through [Qishen Zhou's GitHub profile](https://github.com/qishenzhou).
+If you are interested in aligning TomTom data with MMTD or learning more about the binding workflow, please contact [Qishen Zhou](mailto:qishenzhou@jlu.edu.cn) directly.
 
 ## Getting Started
 
-1. Clone the repo and install dependencies (see `requirements.txt` or environment files in the repo).
-2. Use the provided scripts/notebooks to reproduce the pipeline or load preprocessed fixed-sensor data.
-3. If you are interested in constructing the full MMTD (fixed + TomTom), you will need to acquire TomTom data for the same period/area under TomTom's terms. Please [contact the authors](#tomtom-binding-code) to discuss the alignment workflow.
-4. Load the PyG dataset via the custom loader for training/evaluation (e.g. state estimation, imputation, forecasting).
+1. Clone the repository and use Python 3.11 with a suitable PyTorch installation.
+2. Install the loader dependencies: `python -m pip install -r requirements.txt`.
+3. Download `distance_matrix.h5`, `road_info.h5`, and `fixed_sensor_data.h5` from [Zenodo](https://doi.org/10.5281/zenodo.18781181) into one directory.
+4. From the repository root, run `python -m examples.load_fixed_sensor --data-root /path/to/MMTD` to load a PyG batch. See the [loader guide](data_provider/README.md) for input formats, sampling, masks, and optional already aligned TomTom inputs.
 
-*Specific commands and example snippets will be added as the repository is populated.*
+If you are interested in constructing the full MMTD (fixed + TomTom), acquire TomTom data for the same period/area under TomTom's terms and [contact the authors](#tomtom-binding-code) to discuss alignment.
 
 ## Citation
 
@@ -135,6 +135,6 @@ When using the **processed data**, please cite the Zenodo record:
 
 ## License
 
-- **Code and processing scripts:** [MIT License](LICENSE) — use, modify, and distribute freely; keep the copyright notice.
+- **Code:** [MIT License](LICENSE), except the attributed time-feature utility, which retains its [Apache-2.0 license](licenses/Apache-2.0.txt).
 - **Processed data** we distribute in this repository: **CC BY 4.0** — attribution appreciated; otherwise use freely. ([Summary](https://creativecommons.org/licenses/by/4.0/))
 - **Underlying data sources** (Madrid, TomTom, OSM) are subject to their own terms. We do not grant rights beyond what those sources allow.
